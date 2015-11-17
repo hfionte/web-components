@@ -1,8 +1,8 @@
 # web-components
 
-# INSTALL:
+# install:
 npm install
 bower install
 
-# RUN:
+# run:
 http-server
