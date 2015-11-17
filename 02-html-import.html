@@ -1,0 +1,54 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>02 HTML Import</title>
+        <script>
+            // Data is hard-coded here, but could come from the server
+            var data = [
+                { name: 'Pillar', color: 'Ticked Tabby', sex: 'Female (neutered)', legs: 3 },
+                { name: 'Hedral', color: 'Tuxedo', sex: 'Male (neutered)', legs: 4 },
+            ];
+        </script>
+        <link rel="import" href="row.html">
+    </head>
+    <body>
+
+        <!-- Example from http://www.w3.org/TR/html5/scripting-1.html#the-template-element -->
+
+        <h1>&lt;template&gt; example with import link</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Color</th>
+                    <th>Sex</th>
+                    <th>Legs</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <script>
+            // load the content of the import
+            var content = document.querySelector('link[rel="import"]').import;
+
+            var template = content.querySelector('#row');
+            var tbody = document.querySelector('tbody');
+            for (var i = 0; i < data.length; i += 1) {
+                var cat = data[i];
+                var clone = template.content.cloneNode(true);
+                var cells = clone.querySelectorAll('td');
+                cells[0].textContent = cat.name;
+                cells[1].textContent = cat.color;
+                cells[2].textContent = cat.sex;
+                cells[3].textContent = cat.legs;
+                tbody.appendChild(clone);
+            }
+        </script>
+
+    </body>
+</html>

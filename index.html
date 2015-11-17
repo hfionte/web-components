@@ -1,0 +1,57 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <!-- run with "http-server" -->
+    </head>
+    <body>
+        <h1>Web Components</h1>
+        <p><a href="http://webcomponents.org/">http://webcomponents.org/</a></p>
+
+
+        <h2><a href="01-template-element.html">01: Template Element</a></h2>
+        <p><a href="http://www.w3.org/TR/html5/scripting-1.html#the-template-element">http://www.w3.org/TR/html5/scripting-1.html#the-template-element</a></p>
+        <p>The template element is used to declare fragments of HTML that can be cloned and inserted in the document by script.</p>
+        <p>In a rendering, the template element represents nothing.</p>
+        <p><strong>template.content</strong> returns the contents of the template.</p>
+
+
+        <h2><a href="02-html-import.html">02: HTML Imports</a></h2>
+        <p><a href="http://w3c.github.io/webcomponents/spec/imports/">http://w3c.github.io/webcomponents/spec/imports/</a></p>
+        <p>HTML Imports are a way to include and reuse HTML documents in other HTML documents.</p>
+        <p>&lt;link rel="import" href="/imports/heart.html"&gt;</p>
+
+
+        <h2><a href="03-shadow-dom.html">03: Shadow DOM</a></h2>
+        <p><a href="http://www.w3.org/TR/shadow-dom/">http://www.w3.org/TR/shadow-dom/</a></p>
+        <p>The Shadow DOM is a subtree of DOM elements that are rendered with the main document, but are not part of the main DOM tree. An element that contains a subtree is called the "shadow host". The root node of the sub tree is the "shadow root".</p>
+        <p>You can view the shadow DOM elements of existing elements such as video and input, or you can create your own shadow DOM using createShadowRoot().</p>
+        <p><input id="my-range" type="range"></p>
+
+
+        <h2><a href="04-custom-element.html">04: Custom Element</a></h2>
+        <p><a href="http://w3c.github.io/webcomponents/spec/custom/">http://w3c.github.io/webcomponents/spec/custom/</a></p>
+        <p>Custom elements provide a way for web developers to build their own, fully-featured DOM elements. Though it was long possible to create DOM elements with any tag names in HTML, these elements weren't very functional.</p>
+        <p>The name of a custom element must be all lowercase, must contain at least one hyphen, and can't be one of the <a href="http://w3c.github.io/webcomponents/spec/custom/#dfn-custom-element-type">already existing names with hyphens</a>.</p>
+        <p>Custom elements are registered with document.registerElement()</p>
+
+
+        <h2><a href="05-polymer.html">05: Polymer</a></h2>
+        <p><a href="https://www.polymer-project.org/1.0/">https://www.polymer-project.org/1.0/</a></p>
+        <p>The Polymer library is designed to make it easier and faster for developers to create great, reusable components for the modern web.</p>
+        <p>A catalog of Polymer elements is available at <a href="https://elements.polymer-project.org/">https://elements.polymer-project.org/</a> and there are more at <a href="https://customelements.io/">https://customelements.io/</a>.</p>
+
+        <h2><a href="06-vulcanize.html">06: Vulcanize</a></h2>
+        <p><a href="https://en.wikipedia.org/wiki/Vulcanization">Vulcanization</a> is a process for converting polymers into more durable materials. <em>(paraphrased from wikipedia)</em></p>
+        <p><a href="https://github.com/polymer/vulcanize">Vulcanizing Polymer components</a> prepares them for use in production by compiling all scripts and imports into one page.</p>
+
+    </body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>03 Shadow DOM</title>
+    </head>
+    <body>
+
+        <template>
+            <style>
+                * { color: red; }
+                ::content p { font-weight: bold; }
+            </style>
+            <div class='slide'>
+                <content select='h1'></content>
+                <content select='p, ul'></content>
+                <p>Test <span>span in shadow dom. This span was born inside the Shadow DOM</span></p>
+            </div>
+        </template>
+
+        <h1>Shadow DOM example</h1>
+
+        <div class='container'>
+            <p>The content!</p>
+            <p>more content <span>with a span. This span was injected into Shadow DOM from the main document, so it was styled by document CSS.</span></p>
+            <h1>Test heading</h1>
+            <ul><li>list item</li><li>list item 2</li></ul>
+            <ol><li>another li</li></ol>
+            <div>I got left out</div>
+        </div>
+
+        <p>Another paragraph <span>with a span, in the main document</span>.</p>
+
+        <h2>&lt;input type="range" id="my-range"&gt;</h2>
+        <input id="my-range" type="range">
+
+        <style>
+            /* This span only styles the one in the main document tree */
+            span { font-family: Arial, Helvetica, sans-serif; }
+
+            /* This span styles content that originated inside the Shadow DOM */
+            ::shadow span { text-transform: uppercase; }
+
+            input[type=range]#my-range::-webkit-slider-thumb {
+                border: 3px solid purple;
+                background: white;
+                width: 10px;
+                height: 26px;
+                -webkit-appearance: none;
+            }
+            input[type=range]#my-range {
+                background: red;
+                -webkit-appearance: none;
+                height: 20px;
+            }
+        </style>
+
+
+        <script>
+            var template = document.querySelector('template');
+            var host = document.querySelector('.container');
+            var root = host.createShadowRoot();
+            root.appendChild(document.importNode (template.content, true));
+        </script>
+
+    </body>
+</html>

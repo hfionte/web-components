@@ -1,0 +1,22 @@
+{
+  "name": "web-components",
+  "version": "0.0.0",
+  "authors": [
+    "holfiont <holly.fionte@digitaslbi.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "fa-awesome": "~2.0.1",
+    "paper-elements": "PolymerElements/paper-elements#~1.0.5",
+    "pk-datepicker": "~3.2.2",
+    "polymer": "~1.1.5",
+    "webcomponentsjs": "~0.7.17"
+  }
+}

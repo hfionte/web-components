@@ -1,0 +1,57 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>05 Polymer</title>
+
+        <!-- Polyfill Web Components support for older browsers -->
+        <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+
+        <!-- Import element -->
+        <link rel="import" href="bower_components/paper-button/paper-button.html">
+        <link rel="import" href="bower_components/pk-datepicker/pk-datepicker.html">
+        <link rel="import" href="bower_components/fa-awesome/fa-awesome.html">
+        <link rel="import" href="hollys-polymer-element.html">
+
+        <style>
+            pk-datepicker {
+                width: 400px;
+                background: #ccc;
+            }
+        </style>
+
+    </head>
+    <body>
+        <h1>Polymer: using elements from the catalog</h1>
+
+        <paper-button raised>Raised button</paper-button>
+
+        <pk-datepicker>
+          <fa-awesome prev-month icon="fa:chevron-left"></fa-awesome>
+          <fa-awesome next-month icon="fa:chevron-right"></fa-awesome>
+          <fa-awesome prev-year icon="fa:chevron-left"></fa-awesome>
+          <fa-awesome next-year icon="fa:chevron-right"></fa-awesome>
+          <fa-awesome go-selected icon="fa:dot-circle-o"></fa-awesome>
+          <fa-awesome go-today icon="fa:calendar"></fa-awesome>
+        </pk-datepicker>
+
+        <proto-element></proto-element>
+
+        <script>
+            var datePicker = document.querySelector('pk-datepicker');
+
+            datePicker.addEventListener('date-selected', function(e) {
+                console.log(e.detail);
+            });
+        </script>
+
+
+
+        <h1>Polymer: creating your own elements</h1>
+        <picture-frame>
+            <img src="http://placekitten.com.s3.amazonaws.com/homepage-samples/200/287.jpg">
+        </picture-frame>
+
+    </body>
+</html>

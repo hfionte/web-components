@@ -1,0 +1,90 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>04 Custom Element</title>
+    </head>
+    <body style="padding: 0 50px;">
+        <template>
+            <style>
+                * { color: #888 }
+                p {
+                  font-style: italic;
+                }
+                div {
+                    background: #eee;
+                    border-bottom: 10px solid #ddd;
+                    border-left: 10px solid #ccc;
+                    border-right: 10px solid #ccc;
+                    border-top: 10px solid #aaa;
+                    display: block;
+                    margin: 20px 0;
+                    padding: 10px;
+                }
+                ::content div {
+                    background: #fff;
+                    border: 1px solid #999;
+                    display: inline-block;
+                    margin: 10px;
+                    padding: 10px;
+                }
+            </style>
+            <div>
+                <content></content>
+                <p>a holly fionte production</p>
+            </div>
+        </template>
+
+        <h1>Custom &lt;picture-frame&gt; element</h1>
+
+
+        <picture-frame>
+          <div>
+            <img src="http://placekitten.com.s3.amazonaws.com/homepage-samples/96/139.jpg">
+            <p>kitten 1</p>
+          </div>
+          <div>
+            <img src="http://placekitten.com.s3.amazonaws.com/homepage-samples/96/139.jpg">
+            <p>kitten 2</p>
+          </div>
+        </picture-frame>
+
+        <picture-frame>
+            <div><pre>
+   _____
+  [ moo ]
+   -----
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+            </pre></div>
+        </picture-frame>
+
+        <picture-frame></picture-frame>
+
+        <div>
+            <p>This div isn't in a picture frame</p>
+        </div>
+
+
+        <script>
+            var template = document.querySelector('template');
+            // extend HTMLElement with our own prototype
+            var ourProto = Object.create(HTMLElement.prototype);
+            // give our prototype a callback to create our shadow root
+            // and populate it with content
+            ourProto.createdCallback = function() {
+                var root = this.createShadowRoot();
+                root.appendChild(document.importNode(template.content, true));
+            };
+            // register the custom element
+            var ourElement = document.registerElement('picture-frame', {
+                prototype: ourProto
+            });
+        </script>
+
+    </body>
+</html>

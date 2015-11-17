@@ -1,0 +1,28 @@
+<template>
+    <style>
+        * { color: #888 }
+        p {
+          font-style: italic;
+        }
+        slideshow {
+            display: block;
+            padding: 10px;
+            border: 1px dotted #ccc;
+            margin: 20px 0;
+        }
+        ::content slide {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #999;
+        }
+    </style>
+    <slideshow>
+        <p>
+            <span class="previous">Previous</span>
+            <span class="next">Next</span>
+        </p>
+        <content select="slide"></content>
+        <p>a holly fionte production</p>
+    </slideshow>
+</template>
